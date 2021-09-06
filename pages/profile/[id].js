@@ -26,6 +26,11 @@ export default function Profile({data}) {
         name="description"
         content={`Este es el pokemon mas gozu-- ${data.name} `}
         />
+
+<meta
+      name="description"
+      content={`Este es el pokemon mas gozu-- ${data.name} `}
+    />
         <meta property="og:url" content="https://www.betsocial.club" />
        
         </Head>
