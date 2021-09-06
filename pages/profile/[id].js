@@ -24,7 +24,7 @@ export default function Profile({data}) {
         />
         <meta
         name="description"
-        content="Red social para apostadores - genera dinero ofreciendo pronósticos."
+        content={`Este es el pokemon mas gozu-- ${data.name} `}
         />
         <meta property="og:url" content="https://www.betsocial.club" />
        
