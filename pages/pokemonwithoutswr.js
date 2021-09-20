@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../helpers/axios";
 import Layout from "../layout/layout";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Pokemon() {
   const [pokemons, setPokemons] = useState(null);
@@ -70,7 +71,7 @@ function CardPokemon({ pokemon }) {
     }
 
     getPokemonDetail();
-  }, []);
+  }, [pokemon.url]);
   return (
     <>
       {poke && (
@@ -101,7 +102,7 @@ function CardPokemon({ pokemon }) {
             </div>
           </div>
           <figure>
-            <img
+            <Image
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke.id}.png`}
               alt=""
             />

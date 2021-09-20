@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import useSWR from "swr";
 import Layout from "../layout/layout";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Pokemon() {
   const { data } = useSWR(
@@ -66,7 +66,7 @@ function CardPokemon({ pokemon }) {
             ))}
           </div>
           <figure>
-            <img
+            <Image
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`}
               alt=""
             />

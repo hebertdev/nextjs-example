@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../layout/layout";
 import Link from "next/link";
-
+import Image from "next/image";
 import axiosInstance from "../helpers/axios";
 
 export default function App() {
@@ -77,13 +77,14 @@ function CardPokemon({ randomNumber, setNumBtn, numbtn }) {
     }
 
     getPokemon();
+    // eslint-disable-next-line
   }, [randomNumber]);
   return (
     <>
       {pokemon && (
         <div className="Left_container_card">
           <figure className="Left_container_card_figure">
-            <img
+            <Image
               src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idPokemon}.png`}
               alt=""
             />
@@ -135,10 +136,10 @@ function HomeRight() {
       <h3>INFORMACIÓN GENERAL</h3>
 
       <span>
-        "Pokédex app" Este proyecto es una aplicación de Frontend de ejemplo que
-        muestra cómo utilizar SWR para la obtención de datos. La aplicación usa
-        Next.js como marco y css puro para construir los estilos. Y está
-        consumiendo datos de PokéAPI
+        {' "Pokédex app" '} Este proyecto es una aplicación de Frontend de
+        ejemplo que muestra cómo utilizar SWR para la obtención de datos. La
+        aplicación usa Next.js como marco y css puro para construir los estilos.
+        Y está consumiendo datos de PokéAPI
       </span>
       <br />
       <br />
