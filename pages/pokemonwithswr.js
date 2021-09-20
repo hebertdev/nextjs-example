@@ -69,6 +69,8 @@ function CardPokemon({ pokemon }) {
             <Image
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`}
               alt=""
+              width="100"
+              height="100"
             />
           </figure>
         </div>

@@ -86,7 +86,9 @@ function CardPokemon({ randomNumber, setNumBtn, numbtn }) {
           <figure className="Left_container_card_figure">
             <Image
               src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idPokemon}.png`}
-              alt=""
+              alt={pokemon.name}
+              width="100"
+              height="100"
             />
           </figure>
           <h3> {pokemon.name} </h3>
