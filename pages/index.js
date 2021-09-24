@@ -3,8 +3,6 @@ import Layout from "../layout/layout";
 import Link from "next/link";
 import Image from "next/image";
 import axiosInstance from "../helpers/axios";
-
-import pokemonImg from "../assets/pokebola.png";
 import LoaderPokeball from "../components/PokebolaLoading";
 
 export default function App() {

@@ -1,13 +1,14 @@
 import Layout from "../../layout/layout";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function PokemonDetail({ data, imgPoke, description }) {
-  const ruta = useRouter();
-  const { id } = ruta.query;
+  //const ruta = useRouter();
+  //const { id } = ruta.query;
 
   return (
     <>
@@ -38,7 +39,7 @@ function PokemonCard({ imgPoke, data, description }) {
     <>
       <div className="Pokemon__detail-container">
         <figure className="Pokemon__detail-figure">
-          <img src={imgPoke} alt="" />
+          <Image src={imgPoke} alt={data.name} width="100%" height="100%" />
         </figure>
         <div className="Pokemon__detail-body">
           <div className="Pokemon__detail-body-max">
@@ -58,9 +59,9 @@ function PokemonCard({ imgPoke, data, description }) {
                 <span>
                   <small>
                     Tipo:{" "}
-                    {data.types.map((type) => (
-                      <>{type.type.name} </>
-                    ))}{" "}
+                    {data.types.map((type, index) => (
+                      <span key={index}>{type.type.name}</span>
+                    ))}
                   </small>
                 </span>
               </div>

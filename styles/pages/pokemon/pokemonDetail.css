@@ -17,10 +17,27 @@
   right: 0;
   z-index: 2;
 }
-
-.Pokemon__detail-figure img {
+.Pokemon__detail-figure div {
   width: 100%;
   height: 100%;
+}
+
+.Pokemon__detail-figure div div {
+  width: 220px;
+  height: 220px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pokemon__detail-figure div div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.Pokemon__detail-figure img {
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
 }
 

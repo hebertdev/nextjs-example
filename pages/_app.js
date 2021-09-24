@@ -6,7 +6,6 @@ import "../styles/pages/Pokemon.css";
 import "../styles/pages/pokemon/pokemonDetail.css";
 import { SWRConfig } from "swr";
 import axiosInstance from "../helpers/axios";
-import axios from "axios";
 
 function MyApp({ Component, pageProps }) {
   return (
