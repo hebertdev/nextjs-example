@@ -9,12 +9,12 @@
 
 .Home__left {
   width: 100%;
-
   background: var(--card);
   border-radius: 5px;
   backdrop-filter: blur(20px);
   margin-top: 10px;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .Home__left_container_search {
@@ -24,7 +24,8 @@
 
 .Left_container_card {
   width: 100%;
-  text-align: center;
+
+  height: 142px;
 }
 
 .Left_container_card_figure {
@@ -51,7 +52,7 @@
 
 .Card_footer_btn_get {
   display: block;
-  width: 49.5%;
+  width: 49%;
   padding: 10px;
   border: none;
   background: #81e6d9;
@@ -59,6 +60,7 @@
   cursor: pointer;
   text-align: center;
   font-size: 15px;
+  margin-right: 5px;
 }
 
 .Card_footer_btn_get:active {
@@ -66,7 +68,7 @@
 }
 .Card_footer_btn_detail {
   display: block;
-  width: 49.5%;
+  width: 49%;
   padding: 10px;
   border: none;
   background: #f8d38d;
@@ -86,6 +88,7 @@
   background: transparent;
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
 }
 
 .Card_footer_input_search:focus {
@@ -103,6 +106,7 @@
   cursor: pointer;
   text-align: center;
   font-size: 15px;
+  box-sizing: border-box;
 }
 
 .Home__Right {
@@ -112,6 +116,7 @@
   backdrop-filter: blur(20px);
   margin-top: 10px;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 700px) {

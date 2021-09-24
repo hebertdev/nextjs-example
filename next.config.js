@@ -5,6 +5,7 @@ module.exports = {
       "raw.githubusercontent.com",
       "assets.pokemon.com",
       "raw.githubusercontent.com",
+      "/",
     ],
   },
 };

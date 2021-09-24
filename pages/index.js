@@ -4,6 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import axiosInstance from "../helpers/axios";
 
+import pokemonImg from "../assets/pokebola.png";
+import LoaderPokeball from "../components/PokebolaLoading";
+
 export default function App() {
   return (
     <Layout>
@@ -37,7 +40,7 @@ function SearchContainer() {
     function generateRandomNumeber(min, max) {
       setRandomNumber(Math.floor(Math.random() * (max - min + 1) + min));
     }
-    generateRandomNumeber(1, 800);
+    generateRandomNumeber(1, 807);
   }, [numbtn]);
 
   return (
@@ -63,6 +66,7 @@ function CardPokemon({ randomNumber, setNumBtn, numbtn }) {
         return null;
       }
       try {
+        setIdPokemon(null);
         setLoadingPokemon(true);
         const { data } = await axiosInstance.get(
           `https://pokeapi.co/api/v2/pokemon/${randomNumber}/`
@@ -72,6 +76,7 @@ function CardPokemon({ randomNumber, setNumBtn, numbtn }) {
         setLoadingPokemon(false);
       } catch (error) {
         console.log(error);
+
         setLoadingPokemon(false);
       }
     }
@@ -81,21 +86,28 @@ function CardPokemon({ randomNumber, setNumBtn, numbtn }) {
   }, [randomNumber]);
   return (
     <>
-      {pokemon && (
-        <div className="Left_container_card">
-          <figure className="Left_container_card_figure">
-            <Image
-              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idPokemon}.png`}
-              alt={pokemon.name}
-              width="100"
-              height="100"
-            />
-          </figure>
-          <h3> {pokemon.name} </h3>
-        </div>
-      )}
+      <div className="Left_container_card">
+        {pokemon && idPokemon ? (
+          <>
+            <figure className="Left_container_card_figure">
+              <Image
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idPokemon}.png`}
+                alt={pokemon.name}
+                width="100"
+                height="100"
+              />
+            </figure>
+            <h3 style={{ textAlign: "center" }}>
+              {pokemon.name} - #{pokemon.id}
+            </h3>
+          </>
+        ) : (
+          <LoaderPokeball />
+        )}
+      </div>
+
       <div className="Card_footer_btns">
-        {loadingPokemon ? (
+        {loadingPokemon && idPokemon === null ? (
           <button className="Card_footer_btn_get">Buscando...</button>
         ) : (
           <button
@@ -106,11 +118,16 @@ function CardPokemon({ randomNumber, setNumBtn, numbtn }) {
           </button>
         )}
 
-        <a href="" className="Card_footer_btn_detail">
-          Ver detalle del pokemón
-        </a>
+        {pokemon ? (
+          <Link href={`/pokemon/${pokemon.id}`}>
+            <a className="Card_footer_btn_detail">Ver detalle del pokemón</a>
+          </Link>
+        ) : (
+          <Link href={`/`}>
+            <a className="Card_footer_btn_detail">Ver detalle del pokemón</a>
+          </Link>
+        )}
       </div>
-
       <div>
         <input
           type="text"
